@@ -1,0 +1,90 @@
+
+
+
+<form   #myFormjoinTeam="ngForm">
+    <table class="">
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput placeholder="Project Name" type="text" [(ngModel)]="data.projectName" id="projectName" name="projectName">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput [matDatepicker]="picker1" placeholder="starting date" [(ngModel)]="data.begindate" name="begindate">
+                    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input matInput [matDatepicker]="picker2" placeholder="End Date" [(ngModel)]="data.endDate" name="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <textarea matInput placeholder="Descreption de Projet" [(ngModel)]="data.descreption" name="descreption"></textarea>
+                  </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+        <td>
+
+
+
+            
+
+            <mat-form-field class="example-full-width">
+                <input type="text" [(ngModel)]="data.users" placeholder="Select Users" aria-label="Select Users" matInput [matAutocomplete]="auto" [formControl]="userControl">
+              <mat-hint>Enter text to find users by name</mat-hint>
+            </mat-form-field>
+            
+            <mat-autocomplete  #auto="matAutocomplete" [displayWith]="displayFn">
+                <mat-option  *ngFor="let user of filteredUsers | async" [value]="selectedUsers">
+                    <div (click)="optionClicked($event, user)">
+                        <mat-checkbox  [checked]="user.selected" (change)="toggleSelection(user)" (click)="$event.stopPropagation()">
+                            {{ user.firstname }} {{ user.lastname }}
+                        </mat-checkbox>
+                    </div>
+                </mat-option>
+            </mat-autocomplete>
+            <br><br>
+            <label>Selected Users:</label>
+            <mat-list dense>
+                <mat-list-item *ngIf="selectedUsers?.length === 0">(None)</mat-list-item>
+                <mat-list-item *ngFor="let user of selectedUsers">
+                    {{ user.firstname }} {{ user.lastname }}
+                </mat-list-item>
+            </mat-list>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </td>
+        </tr>
+
+        <td>
+            &nbsp; &nbsp; <button mat-raised-button  [mat-dialog-close]="data" class="freebut" type="submit">Submit</button>
+        </td>
+
+    </table>
+</form>

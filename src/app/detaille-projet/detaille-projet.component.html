@@ -1,0 +1,95 @@
+<!---->
+<br>
+    
+<div class="blocks" >
+    &nbsp;&nbsp;
+
+
+    <button button="submit" mat-raised-button color="primary" (click)="openDialog()">
+      <mat-icon>add</mat-icon> Nouveau Epic
+    </button>
+    <br>
+
+  </div>
+<br>
+<br>
+<mat-tab-group>
+<mat-tab label="Vue Simple">
+  <br>
+<div>
+<!---->
+<div  class="diver" fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="15px" >
+
+    &nbsp;&nbsp;
+<mat-card  class="mat-elevation-z6" fxFlex="33" >
+
+    <mat-card-header  class="cardhead" >
+    <mat-card-title ><p>Affected members</p></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+    <mat-nav-list>
+          <!--  <h3 *ngIf="lpsyze == 0">no projects to lead</h3> -->
+    <!--<a  mat-list-item *ngFor="let member of mebersnames " routerLink='/profile/{{member.id}}' >
+    <p mat-line matBadge="4" matBadgeOverlap="false" >{{member.name}}</p>
+    </a>-->
+    <p>&nbsp;{{affectedMembers}}</p>
+  </mat-nav-list>
+    </mat-card-content>
+
+</mat-card>
+&nbsp; &nbsp; &nbsp;
+
+<mat-card class="mat-elevation-z6" fxFlex="33" >
+    <mat-card-header  class="cardhead" >
+    <mat-card-title ><p>{{projectTitle}}</p></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <br> &nbsp;{{projectdescription}} 
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="mat-elevation-z6" fxFlex="33" >
+    <mat-card-header  class="cardhead" >
+    <mat-card-title ><p>ElapsedTime By Hours</p></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <br>
+             <h1> {{elapsedTime}}</h1>
+    </mat-card-content>
+</mat-card>
+&nbsp;&nbsp;
+</div>
+<br><br>
+
+<mat-accordion>
+    
+    <mat-expansion-panel *ngFor="let epic of listeepics" (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{epic.nomEpic}}
+        </mat-panel-title>
+  
+      </mat-expansion-panel-header>
+      <pre>    {{ epic.descriptionEpic}}</pre>
+      
+        
+        <mat-icon matTooltip="Voir l'Epic" aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/user-story/{{epic.id}}">launch</mat-icon>
+        <mat-icon matTooltip="Modifier l'Epic" aria-label="Button that displays a tooltip when focused or hovered over"(click)="openDialogEdit(epic.id)">edit</mat-icon>
+        <mat-icon matTooltip="Supprimer l'Epic" aria-label="Button that displays a tooltip when focused or hovered over"(click)="deleteepic(epic.id)">delete</mat-icon>
+
+
+    </mat-expansion-panel>
+  </mat-accordion>
+  <br>
+  
+  </div>
+
+</mat-tab>
+
+
+<mat-tab label="Vue Hiéarchique"> <br> <app-detaille-epic></app-detaille-epic> </mat-tab>
+
+
+</mat-tab-group>
+

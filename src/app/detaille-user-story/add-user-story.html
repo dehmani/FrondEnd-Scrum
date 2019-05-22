@@ -1,0 +1,92 @@
+<form   #myFormjoinTeam="ngForm">
+    <table class="">
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput placeholder="UserStory Name" type="text" [(ngModel)]="data.UserStoryName" id="UserStory" name="UserStoryName">
+                </mat-form-field>
+            </td>
+        </tr>
+        
+ 
+        <tr>
+            <td>
+                <mat-form-field>
+                    <textarea matInput placeholder="Description" [(ngModel)]="data.Descreption" name="Descreption"></textarea>
+                  </mat-form-field>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-form-field>
+                    <mat-label >Statut</mat-label>
+                    <mat-select matNativeControl required [(ngModel)]="data.Statut" name="Statut" id="UserStory">
+                      <mat-option value="new">New</mat-option>
+                      <mat-option value="todo">To Do</mat-option>
+                      <mat-option value="ongoing">On Going</mat-option>  
+                      <mat-option value="done">Done</mat-option>
+
+                    </mat-select>
+                  </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                   <mat-form-field>
+                        <mat-label >Priorité</mat-label>
+                        <mat-select matNativeControl required [(ngModel)]="data.Priorite" name="Priorite" id="UserStory" >
+                         <mat-option value="normale">Normal</mat-option>
+                         <mat-option value="basse">basse</mat-option>
+                         <mat-option value="haute">haute</mat-option>
+                         <mat-option value="urgente">Urgent</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+    <!--
+                      <mat-form-field>
+                        <mat-label> Priorité</mat-label>
+                        <mat-select [(value)]="selected" >
+                          <mat-option value="normale">Normale</mat-option>
+                          <mat-option value="basse">Basse</mat-option>
+                          <mat-option value="haute">Haute</mat-option>
+                          <mat-option value="urgente">Urgente</mat-option>
+                        </mat-select>
+                      </mat-form-field>-->
+   
+
+
+
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput placeholder="BV" type="number" [(ngModel)]="data.UserStoryBV" id="UserStoryBV" name="BV">
+                </mat-form-field>
+            </td>
+        </tr><tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput placeholder="Point de Complexité" type="number" [(ngModel)]="data.PointDeComplexite" id="UserStory" name="Point de PointDeComplexite">
+                </mat-form-field>
+            </td>
+        </tr>
+
+        
+
+
+
+
+
+
+
+
+
+        <td>
+            &nbsp; &nbsp; <button mat-raised-button  [mat-dialog-close]="data" class="freebut" type="submit">Submit</button>
+        </td>
+
+    </table>
+</form>

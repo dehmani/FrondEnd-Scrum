@@ -1,0 +1,23 @@
+<form  #myFormjoinTeam="ngForm">
+    <table class="">
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput placeholder="Epic Name" type="text" [(ngModel)]="data.EpicName" id="projectName" name="projectName">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <textarea matInput name="descreption" [(ngModel)]="data.descreption" placeholder="Description"></textarea>
+                  </mat-form-field>
+            </td>
+        </tr>
+
+        <td>
+            &nbsp; &nbsp; <button mat-raised-button [mat-dialog-close]="data" class="freebut" type="submit">Submit</button>
+        </td>
+
+    </table>
+</form>

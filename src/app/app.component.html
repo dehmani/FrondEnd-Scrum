@@ -1,0 +1,9 @@
+
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+<app-homepage></app-homepage>
+<router-outlet *ngIf="s.currentUser == true"></router-outlet>
+<app-login *ngIf="s.currentUser == false"></app-login>
+<mat-spinner class="center" *ngIf="s.currentUser == null"></mat-spinner>
+

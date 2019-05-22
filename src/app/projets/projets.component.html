@@ -1,0 +1,85 @@
+<div [style.background]="'url(./assets/wlh.jpg)'" class="wlh">
+
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.blue-orange.min.css">
+  <!-- Material Design icon font -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+
+</head>
+
+<body>
+    <mat-card class="titlecard"><h1 style="text-align: center;" >Liste des projets</h1></mat-card>
+
+    <br>
+
+    <div>
+
+      <mat-slide-toggle [(ngModel)]="hideclosed" name="hideclosed" value="true" >Voir tous les projets</mat-slide-toggle>
+    </div>
+    
+
+    <br>
+
+    <div class="blocks" >
+      <button button="submit" mat-raised-button color="primary" (click)="openDialog()">
+        <mat-icon>add</mat-icon> Nouveau Projet
+      </button>
+    </div>
+
+
+
+
+
+ 
+
+<br>
+<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="&#61442;  Start searching for a project by name ">
+<br>
+<!-- Square card -->
+<div class="Square">
+<div *ngFor="let project of projects | filter:searchText ">
+<div   class="mdl-card mdl-shadow--2dp demo-card-square">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text">{{project.nomProjet}}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{project.descriptionProjet}}  </div>
+  <div class="mdl-card__actions mdl-card--border">
+<div  class="diver" fxLayout="row" fxLayoutAlign="center none" fxLayoutGap="15px" >
+  <!--
+
+    *ngIf="project.idUser.username == user.username"
+    && project.idUser.username != user.username
+<button style="size : 30%" mat-raised-button color="primary"  routerLink="/projet/{{project.id}}">Voir</button>
+<button style="size : 30%" mat-raised-button color="primary"  (click)="openDialogEdit(project.id)">Edit</button>
+<button style="size : 30%" mat-raised-button color="primary" (click)="deleteproject(project.id)" >Delete</button>
+-->      
+        <mat-icon matTooltip="Voir le projet" aria-label="Button that displays a tooltip when focused or hovered over" routerLink="/projet/{{project.id}}">launch</mat-icon>
+        <mat-icon matTooltip="Modifier le projet" aria-label="Button that displays a tooltip when focused or hovered over"(click)="openDialogEdit(project.id)">edit</mat-icon>
+        <mat-icon matTooltip="Supprimer le projet" aria-label="Button that displays a tooltip when focused or hovered over"(click)="deleteproject(project.id)">delete</mat-icon>
+
+
+</div>
+  </div>
+
+</div>
+</div>
+<div *ngFor="let project of projects | filter:searchText">
+
+<div  *ngIf="hideclosed "  class="mdl-card mdl-shadow--2dp demo-card-square">
+  <div class="mdl-card__title_closed mdl-card--expand">
+    <h2 style="align-content: center" class="mdl-card__title-text">{{project.nomProjet}}</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    {{project.descriptionProjet}}  </div>
+  
+</div>
+</div>
+</div>

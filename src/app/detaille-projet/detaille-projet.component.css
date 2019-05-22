@@ -1,0 +1,33 @@
+.cardhead{
+  background-color: #DCDCDC ;
+}
+
+
+.mat-elevation-z6{
+  padding: 0% ;
+  width: 48%;
+  
+}
+mat-form-field {
+  width: 450px;
+}
+
+
+.diver{
+  height: 100%; flex-direction: row; 
+  box-sizing: border-box; 
+  display: flex; 
+  max-height: 100%; 
+  place-content: stretch space-around;
+  align-items: stretch;
+
+/*  height: 100%; flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+  max-height: 100%; 
+  align-content: stretch center; 
+  align-items: stretch;
+  margin: 15px;*/
+}
+
+h1{text-align: center;}

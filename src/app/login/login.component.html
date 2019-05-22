@@ -1,0 +1,120 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+<br> <br>
+   <div style="text-align: center">
+<img src="./assets/wevioo.jpg"  height="150" width="350" >
+</div>
+<br><br>
+
+<mat-card class="formwidth" id="mat-elevation-z6">
+    <mat-tab-group>
+
+        <!--this is the login form-->
+        <mat-tab label="Login">
+            <h3>Login</h3>
+            <form class="formwidth" (ngSubmit)="onSubmitLogin()" #myFormlogin="ngForm">
+                <table class="fullwidth">
+                    <tr>
+                        <td>
+                            <mat-form-field class="fullwidth">
+                                <input required matInput placeholder="email" type="email" [(ngModel)]="login._username" id="username" name="_username">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="fullwidth">
+                                <input required matInput placeholder="password" type="password" [(ngModel)]="login._password" id="firstname" name="_password">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <button mat-raised-button class="but" type="submit">Login</button>
+                            <br>
+                            <br>
+                            <br>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+
+
+
+            <!--this is the signup form-->
+        </mat-tab>
+        <mat-tab label="Sign In">
+            <h3>Sign In</h3>
+            <form class="formwidth" (ngSubmit)="onSubmitSignUp()" #myFormsignup="ngForm">
+                <table class="fullwidth">
+
+                    <tr>
+                        <td>
+                            <mat-form-field class="fullwidth">
+                                <input matInput required placeholder="Nom" [(ngModel)]="signup.nom" id="nom" name="nom">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="fullwidth">
+                                <input required matInput placeholder="Surnom" [(ngModel)]="signup.surnom" id="surnom" name="surnom">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <mat-form-field class="fullwidth">
+                                <input required matInput placeholder="email" [(ngModel)]="signup.email" id="email" name="email">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                
+                    <tr>
+                        <td>
+                            <mat-form-field class="fullwidth">
+                                <input required type="password" matInput placeholder="password" [(ngModel)]="signup.password" id="password" name="password">
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                 
+                    <tr>
+
+                    </tr>
+                    <br>
+                    <tr>
+                        <button mat-raised-button class="but" type="submit">Signin</button>
+                        <br>
+                        <br>
+                        <br>
+                    </tr>
+                </table>
+            </form>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>
+

@@ -1,0 +1,23 @@
+<form  (ngSubmit)="onSubmitother()" #myFormjoinTeam="ngForm">
+    <table class="">
+        <tr>
+            <td>
+                <mat-form-field class="free">
+                    <input required matInput placeholder="Epic Name" type="text" [(ngModel)]="data.projectName" id="projectName" name="projectName">
+                </mat-form-field>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <mat-form-field>
+                    <textarea matInput placeholder="Description" [(ngModel)]="data.descreption" name="descreption"></textarea>
+                  </mat-form-field>
+            </td>
+        </tr>
+
+        <td>
+            &nbsp; &nbsp; <button mat-raised-button class="freebut" [mat-dialog-close]="data" type="submit">Submit</button>
+        </td>
+
+    </table>
+</form>

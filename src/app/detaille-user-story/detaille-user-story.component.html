@@ -1,0 +1,103 @@
+<br>
+<mat-card class="example-card">
+  <mat-card-header>
+
+    <mat-card-title >{{epicTitle}}</mat-card-title>
+   
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>
+     {{epicdescription}}
+    </p>
+  </mat-card-content>
+
+</mat-card>
+<!---->
+    <br>
+    
+
+    <div class="blocks" >
+        &nbsp;&nbsp;
+      <button button="submit" mat-raised-button color="primary" (click)="openDialog2()">
+        <mat-icon>add</mat-icon> Nouveau User Story
+      </button>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="drag-drop-container">
+<div class="example-container">
+  <h2>New</h2>
+  <div
+    cdkDropList
+    #newList="cdkDropList"
+    [cdkDropListData]="new"
+    [cdkDropListConnectedTo]="[ongoingList,todoList,doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event,'new')">
+
+    <div class="example-box" *ngFor="let item of new" cdkDrag>{{item.nomSerStory}}
+        <mat-icon (click)="openDialog3(item.id)">launch</mat-icon><!--
+        <mat-icon (click)="editUserStory(item.id)">edit</mat-icon>
+        <mat-icon (click)="deleteUserStory(item.id)">delete</mat-icon>-->
+    </div>
+  </div>
+</div>
+<div class="example-container">
+  <h2>To Do</h2>
+
+  <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="todo"
+    [cdkDropListConnectedTo]="[newList,ongoingList,doneList]"
+
+    class="example-list"
+    (cdkDropListDropped)="drop($event,'todo')">
+    <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item.nomSerStory}}
+        <mat-icon (click)="openDialog3(item.id)">launch</mat-icon>
+       <!-- <mat-icon (click)="editUserStory(item.id)">edit</mat-icon>
+        <mat-icon (click)="deleteUserStory(item.id)">delete</mat-icon>-->
+    </div>
+  </div>
+</div>
+<div class="example-container">
+  <h2>On Going</h2>
+
+  <div
+    cdkDropList
+    #ongoingList="cdkDropList"
+    [cdkDropListData]="ongoing"
+    [cdkDropListConnectedTo]="[todoList,doneList,newList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event,'ongoing')">
+    <div class="example-box" *ngFor="let item of ongoing" cdkDrag>{{item.nomSerStory}}
+        <mat-icon (click)="openDialog3(item.id)">launch</mat-icon>
+        <!--<mat-icon (click)="editUserStory(item.id)">edit</mat-icon>
+        <mat-icon (click)="deleteUserStory(item.id)">delete</mat-icon>  -->  </div>
+  </div>
+</div>
+
+
+
+<div class="example-container">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="done"
+    [cdkDropListConnectedTo]="[todoList,newList,ongoingList]"
+
+
+    class="example-list"
+    (cdkDropListDropped)="drop($event,'done')">
+    <div class="example-box" *ngFor="let item of done" cdkDrag>{{item.nomSerStory}}
+      <mat-icon (click)="openDialog3(item.id)">launch</mat-icon><!--
+      <mat-icon (click)="editUserStory(item.id)">edit</mat-icon>
+      <mat-icon (click)="deleteUserStory(item.id)">delete</mat-icon>-->
+    </div>
+  </div>
+</div>
+</div>
+
+
